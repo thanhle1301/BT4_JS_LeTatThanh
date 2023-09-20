@@ -21,24 +21,27 @@ function layThongTinNhapVao() {
       return dtb;
     },
   };
-  console.log("🚀 - layThongTinNhapVao - sv:", sv);
 
   return sv;
 }
 
-function renderDSSV() {
+function renderDSSV(dssv) {
   //   4. show array lên màn hình
   var contentHTML = "";
   for (var index = 0; index < dssv.length; index++) {
     var sv = dssv[index]; // có để lấy dữ liệu từ sv gán qua từng index của dssv. nếu không sẽ ko hiện lên layout
     var trString = `<tr> 
-                            <td>${sv.ma}/td>
-                            <td>${sv.ten}/td>
-                            <td>${sv.email}/td>
-                            <td>0</td>
+                            <td>${sv.ma}</td>
+                            <td>${sv.ten}</td>
+                            <td>${sv.email}</td>
+                            <td>
+                            <button onclick="xoaSV('${sv.ma}')" class="btn btn-danger">Xóa</button>
+                            <button onclick="xoaSV('${sv.ma}')" class="btn btn-warning">Sửa</button>
+                            
+                            </td>
                      </tr>`;
     contentHTML = contentHTML + trString;
   }
-  console.log("🚀 - layThongTinNhapVao - contentHTML:", contentHTML);
+  
   document.getElementById("tbodySinhVien").innerHTML = contentHTML;
 }
