@@ -31,3 +31,19 @@ function xoaSV(id) {
   dssv.splice(index, 1); // xóa phần tử tại vị trí index
   renderDSSV(dssv); // renderDSSV lại
 }
+
+function suaSV(id) {
+  var index = dssv.findIndex(function (item) {
+    return item.ma == id;
+  });
+  console.log("🚀 - index - index:", index);
+  var sv = dssv[index];
+  // hiển thị lên form
+  document.getElementById("txtMaSV").value = sv.ma;
+  document.getElementById("txtTenSV").value = sv.ten;
+  document.getElementById("txtEmail").value = sv.email;
+  document.getElementById("txtPass").value = sv.matKhau;
+  document.getElementById("txtDiemToan").value = sv.toan;
+  document.getElementById("txtDiemLy").value = sv.ly;
+  document.getElementById("txtDiemHoa").value = sv.hoa;
+}

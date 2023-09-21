@@ -36,12 +36,12 @@ function renderDSSV(dssv) {
                             <td>${sv.email}</td>
                             <td>
                             <button onclick="xoaSV('${sv.ma}')" class="btn btn-danger">Xóa</button>
-                            <button onclick="xoaSV('${sv.ma}')" class="btn btn-warning">Sửa</button>
+                            <button onclick="suaSV('${sv.ma}')" class="btn btn-warning">Sửa</button>
                             
                             </td>
                      </tr>`;
     contentHTML = contentHTML + trString;
   }
-  
+
   document.getElementById("tbodySinhVien").innerHTML = contentHTML;
 }
