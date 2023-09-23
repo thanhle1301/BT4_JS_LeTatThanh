@@ -10,6 +10,16 @@ if (dataJson != null) {
 renderDSSV();
 function themSV() {
   var sv = layThongTinNhapVao();
+  //6. kiểm tra điền thiếu thông tin
+  var isVaild =
+    kiemTraRong(sv.ma, "spanMaSV") &
+    kiemTraRong(sv.ten, "spanTenSV") &
+    kiemTraTrung(sv.ma, "spanMaSV", dssv, "Trùng mã", "ma") &
+    kiemTraTrung(sv.email, "spanEmailSV", dssv, "Trùng email", "email");
+
+  if (!isVaild) {
+    return;
+  }
   // 3.1 đẩy lên array dssv
   dssv.push(sv);
   console.log("🚀 - layThongTinNhapVao - dssv:", dssv);
