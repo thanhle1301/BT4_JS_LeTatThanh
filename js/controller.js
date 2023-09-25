@@ -8,21 +8,10 @@ function layThongTinNhapVao() {
   var ly = document.getElementById("txtDiemLy").value * 1;
   var hoa = document.getElementById("txtDiemHoa").value * 1;
   //    2.tạo object
-  var sv = {
-    ma: ma,
-    ten: ten,
-    email: email,
-    matKhau: matKhau,
-    toan: toan,
-    ly: ly,
-    hoa: hoa,
-    tinhDTB: function () {
-      var dtb = (this.toan + this.ly + this.hoa) / 3;
-      return dtb;
-    },
-  };
+  return new SinhVien(ma, ten, matKhau, email, toan, ly, hoa);
+  
 
-  return sv;
+ 
 }
 
 function renderDSSV(dssv) {
@@ -34,9 +23,15 @@ function renderDSSV(dssv) {
                             <td>${sv.ma}</td>
                             <td>${sv.ten}</td>
                             <td>${sv.email}</td>
+                            <td>${sv.tinhDTB()}</td>
+
                             <td>
-                            <button onclick="xoaSV('${sv.ma}')" class="btn btn-danger">Xóa</button>
-                            <button onclick="suaSV('${sv.ma}')" class="btn btn-warning">Sửa</button>
+                            <button onclick="xoaSV('${
+                              sv.ma
+                            }')" class="btn btn-danger">Xóa</button>
+                            <button onclick="suaSV('${
+                              sv.ma
+                            }')" class="btn btn-warning">Sửa</button>
                             
                             </td>
                      </tr>`;

@@ -5,7 +5,17 @@ const DSSV_LOCAL = "DSSV_LOCAL";
 var dataJson = localStorage.getItem(DSSV_LOCAL);
 // chuyển dữ liệu convert =>array nếu ko có dữ liệu để ko mất dữ liệu cũ đã lưu
 if (dataJson != null) {
-  dssv = JSON.parse(dataJson);
+  dssv = JSON.parse(dataJson).map(function (item) {
+    return new SinhVien(
+      item.ma,
+      item.ten,
+      item.email,
+      item.matKhau,
+      item.toan,
+      item.ly,
+      item.hoa
+    );
+  });
 }
 renderDSSV();
 function themSV() {
@@ -46,6 +56,8 @@ function xoaSV(id) {
     }
   }
   dssv.splice(index, 1); // xóa phần tử tại vị trí index
+  var dataJson = JSON.stringify(dssv);
+  localStorage.setItem(DSSV_LOCAL, dataJson);
   renderDSSV(dssv); // renderDSSV lại
 }
 
