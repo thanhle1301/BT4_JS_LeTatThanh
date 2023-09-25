@@ -56,7 +56,7 @@ function xoaSV(id) {
     }
   }
   dssv.splice(index, 1); // xóa phần tử tại vị trí index
-  var dataJson = JSON.stringify(dssv);
+  dataJson = JSON.stringify(dssv);
   localStorage.setItem(DSSV_LOCAL, dataJson);
   renderDSSV(dssv); // renderDSSV lại
 }
